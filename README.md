@@ -53,7 +53,7 @@ You can download the [attached .stl files](https://github.com/Ruud14/DIY-Wifi-LE
 convert them to g-code and print them. Make sure you enable support material for the bottom part.*  
 
 After everything is done you should check that no soldered connections are touching each other and connect your soldered pcb to power. 
-Just to check you can scan for nearby wifi networks on your phone and you should see a network called "New LedStrip" if everything is allright. 
+Just to check you can scan for nearby wifi networks on your phone and you should see a network called "LedStrip Setup" if everything is allright. 
 Now your very own controller is done and you can install the app to controll the strip [here](https://github.com/Ruud14/Wifi-LEDStrip-Controller-App).
 You can also controll the strip by sending raw socket commands in the following format:
 
@@ -66,9 +66,9 @@ After a color comes a transition. The two options are `Fade(x)` and `Wait(x)` .
 A color can only be followed up by a transition and a transition can only be followed up by a color. 
 Colors and transitions must be separated by a `;`. The string must always end with a transition.
 
-![fully_assembled](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/pictures/fully_assembled.jpg)
-![inside_case](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/pictures/inside_case.jpg)
-![soldered_pcb1](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/pictures/soldered_pcb1.jpg)
+![fully_assembled](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/blob/master/pictures/fully_assembled.jpg)
+![inside_case](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/blob/master/pictures/inside_case.jpg)
+![soldered_pcb1](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/blob/master/pictures/soldered_pcb1.jpg)
 
  
 ### Additional info.
