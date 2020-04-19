@@ -139,6 +139,7 @@ class Configuration:
 
     def stop(self):
         self.stopped = True
+        self.current_color = Color(0, 0, 0)
 
     def restart(self):
         self.stopped = False

@@ -45,12 +45,15 @@ def setup_network():
             data = client.recv(1024).decode()
             ssid, password, hostname = data.split(",")
             if connect(ssid, password, hostname):
+                client.send(ip_addr.encode())
+                time.sleep(5)
                 client.close()
                 s.close()
                 ap_if.active(False)
                 save_network(ssid, password, hostname)
                 break
             else:
+                client.send("failed".encode())
                 client.close()
 
 

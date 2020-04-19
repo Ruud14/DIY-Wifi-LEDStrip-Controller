@@ -52,6 +52,9 @@ def main():
                 os.remove(CONFIGURATION_SAVE_FILE)
                 machine.reset()
                 continue
+            elif message == "off":
+                c.stop()
+                continue
             elif message.startswith('('):
                 str_configuration = message
             else:
