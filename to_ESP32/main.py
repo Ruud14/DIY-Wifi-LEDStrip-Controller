@@ -24,7 +24,7 @@ def get_last_configuration():
             str_loops = file.readlines()
         config = load_configuration(str_loops[-1])
     except (OSError, IndexError, ValueError):
-        config = [Color(1024, 0, 0), Wait(0.2), Color(0, 0, 0), Wait(0.2), Color(1024, 0, 0), Wait(0.2),
+        config = [Color(1023, 0, 0), Wait(0.2), Color(0, 0, 0), Wait(0.2), Color(1023, 0, 0), Wait(0.2),
                       Color(0, 0, 0), Wait(1.0)]
     return config
 

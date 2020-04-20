@@ -17,7 +17,7 @@ def load_configuration(str_conf):
     loop = []
     for x in str_loop:
         if x.startswith("("):
-            loop.append(Color(*[int(y) for y in x.replace(")","").replace("(","").split(",")]))
+            loop.append(Color(*[int(y)-1 if int(y)==1024 else int(y) for y in x.replace(")","").replace("(","").split(",")]))
         else:
             class_name, duration = x.split("(")
             duration = float(duration.replace(")",""))
@@ -40,8 +40,8 @@ class Color:
         return self.R, self.G, self.B
 
     def validity_check(self, R, G, B):
-        if not R >= 0 or not R <= 1024 or not G >= 0 or not G <= 1024 or not B >= 0 or not B <= 1024:
-            error("The value of R, G and B have to be between 0 and 1024")
+        if not R >= 0 or not R <= 1023 or not G >= 0 or not G <= 1023 or not B >= 0 or not B <= 1023:
+            error("The value of R, G and B have to be between 0 and 1023: {},{},{}".format(R, G, B))
 
     def __str__(self):
         return str((self.R, self.G, self.B))
@@ -98,9 +98,9 @@ class Fade(Transition):
 
 class LedStrip:
     def __init__(self, r_pin, g_pin, b_pin):
-        self.red = machine.PWM(machine.Pin(r_pin))
-        self.green = machine.PWM(machine.Pin(g_pin))
-        self.blue = machine.PWM(machine.Pin(b_pin))
+        self.red = machine.PWM(machine.Pin(r_pin), freq=5000)
+        self.green = machine.PWM(machine.Pin(g_pin), freq=5000)
+        self.blue = machine.PWM(machine.Pin(b_pin), freq=5000)
 
     def set_color(self, color):
         r,g,b = color.get()
