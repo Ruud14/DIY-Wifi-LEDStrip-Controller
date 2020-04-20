@@ -39,7 +39,7 @@ Simply install ampy by running 'pip3 install adafruit-ampy' in your terminal. Af
 'ampy --port YOUR_PORT put objects.py',
 
 After this you can disconnect your esp32 from your PC and start soldering.
-I tried to mark everything on the PCB as good as possible, but you can look at the pictures if it isn't clear enough.
+I tried to mark everything on the PCB as good as possible, but you can look at the [pictures](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/tree/master/pictures) if it isn't clear enough.
 **One thing you really need to look out for is that the wires of the female strip connector aren't in the correct order.
 You need to put the red wire in the hole that says 'R', the green one in the hole that says 'G' and the blue one in the hole that says 'B'.**
 **Another thing to note is that the shortest end of the female dc power socket should be connected to the positive(red) wire of the converter**
