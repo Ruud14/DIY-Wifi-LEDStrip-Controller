@@ -30,15 +30,18 @@ class Color:
         self.validity_check(R, G, B)
         self.set(R, G, B)
 
+    # Sets the current color of the strip.
     def set(self, R, G, B):
         self.R = int(round(R))
         self.G = int(round(G))
         self.B = int(round(B))
         led_strip.set_color(self)
 
+    # Returns the color as r,g,b values.
     def get(self):
         return self.R, self.G, self.B
 
+    # Checks if the R,G,B values are valid.
     def validity_check(self, R, G, B):
         if not R >= 0 or not R <= 1023 or not G >= 0 or not G <= 1023 or not B >= 0 or not B <= 1023:
             error("The value of R, G and B have to be between 0 and 1023: {},{},{}".format(R, G, B))
@@ -53,6 +56,7 @@ class Transition:
         self.duration = duration
         self.current_color = Color(0, 0, 0)
 
+    # Returns the current color.
     def get(self):
         return self.current_color
 
@@ -61,25 +65,15 @@ class Transition:
 
 
 # ---- All transitions ----
+# Waits for a specific amount of seconds before changing to the next color.
 class Wait(Transition):
     def run(self, current_color, next_color):
         self.current_color = current_color
-
-        new_col = [0, 0, 0]
-        for i, col in enumerate(self.current_color.get()):
-            if not col == 0:
-                new_col[i] = col - 1
-        iterations = int(self.duration*100)
-        wait_color = Color(*new_col)
-        for _ in range(iterations):
-            self.current_color.set(*self.current_color.get())
-            time.sleep(0.005)
-            self.current_color.set(*wait_color.get())
-            time.sleep(0.005)
-
+        time.sleep(self.duration)
         self.current_color.set(*next_color.get())
 
 
+# Slowly fades from one color to another during a specific amount of seconds.
 class Fade(Transition):
     def run(self, current_color, next_color):
         self.current_color = current_color
@@ -96,20 +90,22 @@ class Fade(Transition):
         self.current_color.set(*next_color.get())
 
 
+# Class representation of the LED strip.
 class LedStrip:
     def __init__(self, r_pin, g_pin, b_pin):
         self.red = machine.PWM(machine.Pin(r_pin), freq=5000)
         self.green = machine.PWM(machine.Pin(g_pin), freq=5000)
         self.blue = machine.PWM(machine.Pin(b_pin), freq=5000)
 
+    # Sets the color of the strip.
     def set_color(self, color):
         r,g,b = color.get()
-        #print(r,g,b)
         self.red.duty(r)
         self.green.duty(g)
         self.blue.duty(b)
 
 
+# Class representation of the configuration running on the strip.
 class Configuration:
     def __init__(self, loop, save_file):
         self.save_file = save_file
@@ -119,6 +115,7 @@ class Configuration:
         self.current_color = Color(*loop[0].get())
         self.stopped = False
 
+    # Goes through self.loop to play the configuration
     def play(self):
         for i, it in enumerate(self.loop):
             if isinstance(it, Transition):
@@ -132,18 +129,22 @@ class Configuration:
                 except IndexError:
                     break
 
+    # Keeps running self.play to play the configuration forever
     def play_forever(self):
         while True:
             if not self.stopped:
                 self.play()
 
+    # stops running the configuration and turns off the strip.
     def stop(self):
         self.stopped = True
         self.current_color = Color(0, 0, 0)
 
+    # Continues running the configuration.
     def restart(self):
         self.stopped = False
 
+    # Saves the current configuration to storage so it can be run on the next startup.
     def save(self):
         string = ";".join([str(x) for x in self.loop]) + "\n"
         print(string)
@@ -165,6 +166,7 @@ class Configuration:
             with open(self.save_file, 'w') as file:
                 file.write(string)
 
+    # Checks if the configuration is valid.
     def validity_check(self):
         if not isinstance(self.loop[0], Color):
             error("First element of loop has to be a color.")
@@ -186,4 +188,5 @@ class Configuration:
                 error("{} isn't a color or a transition.".format(str(it)))
 
 
+# Global LED strip, which can be accessed by every class.
 led_strip = LedStrip(RED_CONTROL_PIN, GREEN_CONTROL_PIN, BLUE_CONTROL_PIN)
