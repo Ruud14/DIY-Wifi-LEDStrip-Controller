@@ -42,7 +42,7 @@ After this you can disconnect your esp32 from your PC and start soldering.
 I tried to mark everything on the PCB as good as possible, but you can look at the [pictures](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/tree/master/pictures) if it isn't clear enough.
 **One thing you really need to look out for is that the wires of the female strip connector aren't in the correct order.
 You need to put the red wire in the hole that says 'R', the green one in the hole that says 'G' and the blue one in the hole that says 'B'.**
-**Another thing to note is that the shortest end of the female dc power socket should be connected to the positive(red) wire of the converter**
+**Another thing to note is that the shortest end of the female dc power socket should be connected to the positive end of the board**
 
 *This part is for the ones that are printing the case.
 You can download the [attached .stl files](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/tree/master/3d%20models)
