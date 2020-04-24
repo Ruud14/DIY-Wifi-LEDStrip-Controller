@@ -28,7 +28,7 @@ While waiting for the parts to arrive you can already install a version of [pyth
 Make sure you install version 3.7 or higher.
 After installing python you can connect your esp32 board to your PC using a micro USB cable,
 install [esptool](https://pypi.org/project/esptool/) and flash your esp32 with the MicroPython firmware. You can find a great guide for all this
-over [here](https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html).
+over [here](https://docs.micropython.org/en/latest/esp8266/tutorial/intro.html). **Make sure to hold the "Boot" button on the board while writing and erasing flash or it won't work.**
 
 The last thing we should do before we start soldering is put
 the [attached scripts](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/tree/master/to_ESP32) on the board.
