@@ -50,6 +50,7 @@ def main():
             elif message == "reset":
                 os.remove(NETWORK_CONFIGURATION_SAVE_FILE)
                 os.remove(CONFIGURATION_SAVE_FILE)
+                c.stop()
                 machine.reset()
                 continue
             elif message == "off":
