@@ -61,6 +61,8 @@ After a color comes a transition. The two options are 'Fade(x)' and 'Wait(x)' .
 A color can only be followed up by a transition and a transition can only be followed up by a color.
 Colors and transitions must be separated by a ';'. The string must always end with a transition.
 
+**Just to make sure that the ip of your strip controller doesn't change when the router resets, Reserve the ip addresses of the strip controller in the settings of your router.** You can find the ip of your controller in [The android app](https://github.com/Ruud14/Wifi-LEDStrip-Controller-App) after you added the strip.
+
 ![fully_assembled](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/blob/master/pictures/fully_assembled.jpg)
 ![inside_case](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/blob/master/pictures/inside_case.jpg)
 ![soldered_pcb1](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/blob/master/pictures/soldered_pcb1.jpg)
