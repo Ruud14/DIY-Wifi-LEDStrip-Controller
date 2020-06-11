@@ -73,3 +73,5 @@ Colors and transitions must be separated by a ';'. The string must always end wi
 - Working access point networks.
 - Working with the esp32 (Had used a esp8266 before).
 - Designing a PCB.
+
+Licensed under the [MIT License](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/blob/master/LICENSE)
