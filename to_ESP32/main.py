@@ -2,6 +2,7 @@ import _thread
 from objects import *
 import usocket
 import machine
+import time
 import gc
 import os
 
@@ -46,6 +47,13 @@ def main():
             if message == "restart":
                 machine.reset()
                 continue
+            elif message == "status":
+                if c.stopped:
+                    client.send('0')
+                else:
+                    client.send('1')
+                time.sleep(0.1)
+                continue
             # Resets network settings and configurations.
             elif message == "reset":
                 os.remove(NETWORK_CONFIGURATION_SAVE_FILE)
@@ -54,7 +62,9 @@ def main():
                 machine.reset()
                 continue
             elif message == "off":
-                c.stop()
+                for i in range(10):
+                    c.stop()
+                    time.sleep(0.1)
                 continue
             elif message.startswith('('):
                 str_configuration = message
