@@ -8,7 +8,8 @@ DIY Wi-Fi LED strip controller based on the ESP32 chip and MicroPython. Contains
 - 1x NodeMCU ESP32 : [eBay LINK 1pc](https://www.ebay.com/itm/Espressif-ESP32-WLAN-Dev-Kit-Board-Development-Bluetooth-Wifi-v1-WROOM32-NodeMCU/253059783728?hash=item3aeb89dc30:g:5-8AAOSwAThb3MaZ)
 - 3x 1KOhm resistor: [eBay LINK 100pc](https://www.ebay.com/itm/100-pcs-1-4W-0-25W-1-Metal-Film-Resistor-1K-ohm-1Kohm/282033455842?_trksid=p2485497.m4902.l9144)
 - 1x 12v Female DC Power Socket: [EBAY LINK 10pc](https://www.ebay.com/itm/10Pcs-5-5-x-2-1mm-12-V-DC-Power-Supply-Jack-Socket-Female-Panel-Mount-Connector/143449192665?_trksid=p2485497.m4902.l9144)
-- 1x Female strip connector: [EBAY LINK 5pc](https://www.ebay.com/itm/10Pcs-5-5-x-2-1mm-12-V-DC-Power-Supply-Jack-Socket-Female-Panel-Mount-Connector/143449192665?_trksid=p2485497.m4902.l9144)- 1x RGB LED strip: [eBay LINK 1pc](https://www.ebay.com/itm/184203854470?ViewItem=&item=184203854470)
+- 1x Female strip connector: [EBAY LINK 5pc](https://www.ebay.com/itm/Durable-4Pin-Male-Female-Connector-Wire-Cable-for-3528-5050-SMD-LED-Strip-Light/352235582745?epid=1155449649&hash=item5202e07519:g:koEAAOSw8b1aN2vm)
+- 1x RGB LED strip: [eBay LINK 1pc](https://www.ebay.com/itm/184203854470?ViewItem=&item=184203854470)
 - 3x Tip31c transistor: [eBay LINK 10pc](https://www.ebay.com/itm/10-x-TIP31C-TIP31-NPN-Transistor-3A-100V-TO-220-FSC/270984720497?hash=item3f17f2b071:g:8hUAAOxyepRRrfsF)
 - 1x 12v Power Supply Adapter (2A for a 5M long strip): [eBay LINK 1pc](https://www.ebay.com/itm/AC-TO-DC-5V-12V-24V-1A-2A-3A-5A-10A-0-5A-Power-Supply-Adapter-LED-Strip-Light/254344416209?_trksid=p2485497.m4902.l9144)
 - 1x 12v to 5v Converter: [eBay LINK 1pc](https://www.ebay.com/itm/DC-DC-12V-to-5V-6V-9V-2-3A-15W-Converter-Step-Down-2A-3A-15W-Power-Supply-Module/401327863545?_trksid=p2485497.m4902.l9144)
@@ -61,6 +62,8 @@ After a color comes a transition. The two options are 'Fade(x)' and 'Wait(x)' .
 A color can only be followed up by a transition and a transition can only be followed up by a color.
 Colors and transitions must be separated by a ';'. The string must always end with a transition.
 
+**Just to make sure that the ip of your strip controller doesn't change when the router resets, Reserve the ip addresses of the strip controller in the settings of your router.** You can find the ip of your controller in [The android app](https://github.com/Ruud14/Wifi-LEDStrip-Controller-App) after you added the strip.
+
 ![fully_assembled](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/blob/master/pictures/fully_assembled.jpg)
 ![inside_case](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/blob/master/pictures/inside_case.jpg)
 ![soldered_pcb1](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/blob/master/pictures/soldered_pcb1.jpg)
@@ -70,3 +73,5 @@ Colors and transitions must be separated by a ';'. The string must always end wi
 - Working access point networks.
 - Working with the esp32 (Had used a esp8266 before).
 - Designing a PCB.
+
+Licensed under the [MIT License](https://github.com/Ruud14/DIY-Wifi-LEDStrip-Controller/blob/master/LICENSE)
